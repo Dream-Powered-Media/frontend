@@ -1,0 +1,22 @@
+@import '../../../../core/styles/vars.module.scss';
+
+.line {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.bullet {
+    height: 40px;
+    width: 40px;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: $universal-gradient;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}

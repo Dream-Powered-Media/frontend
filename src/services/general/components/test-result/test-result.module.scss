@@ -1,0 +1,8 @@
+.colorful {
+    color: rgb(255, 85, 85) !important;
+    margin-top: 10px;
+
+    &[data-corr=true] {
+        color: rgb(45, 191, 45) !important;
+    }
+}

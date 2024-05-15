@@ -1,0 +1,35 @@
+.bubble {
+    position: fixed;
+    &-left {
+        &-first {
+            left: 0;
+            top: 15%;
+            z-index: -1;
+        }
+
+        &-second {
+            left: 0;
+            top: 30%;
+            z-index: -2;
+        }
+    }
+
+    &-right {
+        &-first {
+            right: 0;
+            top: 15%;
+            z-index: -2;
+        }
+
+        &-second {
+            right: 1vw;
+            top: 20%;
+            z-index: -1;
+        }
+    }
+
+    &-bottom {
+        bottom: 0px;
+        z-index: -1;
+    }
+}

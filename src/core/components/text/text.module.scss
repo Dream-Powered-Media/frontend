@@ -1,0 +1,29 @@
+@import '../../styles/vars.module.scss';
+
+.text {
+    font-weight: 400;
+
+    &-bold {
+        font-weight: 600;
+    }
+
+    &-underlined {
+        text-decoration: underline;
+    }
+
+    &-control {
+        font-size: $control;
+    }
+
+    &-action {
+        font-size: $action;
+    }
+
+    &-body {
+        font-size: $body;
+    }
+
+    &-caption {
+        font-size: $caption;
+    }
+}

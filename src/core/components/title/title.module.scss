@@ -1,0 +1,29 @@
+@import '../../styles/vars.module.scss';
+
+.title {
+    font-weight: 400;
+
+    &-bold {
+        font-weight: 600;
+    }
+
+    &-h1 {
+        font-size: $h1;
+    }
+
+    &-h2 {
+        font-size: $h2;
+    }
+
+    &-h3 {
+        font-size: $h3;
+    }
+
+    &-title {
+        font-size: $title;
+    }
+
+    &-subtitle {
+        font-size: $subtitle;
+    }
+}

@@ -1,0 +1,44 @@
+@import '../../styles/vars.module.scss';
+
+.modal {
+    position: fixed;
+    top: 20vh;
+    left: 33vw;
+    z-index: 99;
+    width: 30vw;
+
+    padding: 40px 40px;
+    padding-right: 50px;
+    border-radius: $border-radius-big;
+    background-color: $white-color;
+}
+
+.modalForegroundBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 98;
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: $black-color;
+    opacity: 0.45;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    height: 36px;
+    width: 36px;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.head {
+    width: 30vw;
+}

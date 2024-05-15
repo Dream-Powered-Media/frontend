@@ -1,0 +1,42 @@
+@import '../../styles/vars.module.scss';
+
+.header {
+    position: fixed;
+    top: 0;
+    background: $universal-gradient; 
+    height: $header-perc;
+    width: calc(100% - $padding-big * 2);
+    padding: $padding-big;
+    color: $white-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.company,
+.controls {
+    display: flex;
+    align-items: center;
+    padding: $padding-small;
+}
+
+.company {
+    flex: 1;
+    gap: 7%;
+}
+
+.controls {
+    flex: 5;
+    gap: 4%;
+
+    justify-content: flex-end;
+}
+
+.link {
+    color: $white-color;
+
+    &:hover {
+        color: silver;
+    }
+}

@@ -1,0 +1,31 @@
+@import '../../styles/vars.module.scss';
+
+.button {
+    padding: $padding-small $padding-big;
+    margin: $null;
+    border-radius: $border-radius;
+    background: $helpy-color;
+    border-width: $null;
+    color: $white-color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    &[data-btype=default] {
+        background: $primary-color;
+    }
+
+    &[data-btype=gradient] {
+        background: $universal-gradient;
+    }
+
+    &[data-btype=transparent] {
+        background-color: rgba(silver, 0.4);
+    }
+
+    &:hover {
+        opacity: $opacity;
+    }
+}

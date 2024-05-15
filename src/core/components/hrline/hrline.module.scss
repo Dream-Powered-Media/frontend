@@ -1,0 +1,8 @@
+@import '../../styles/vars.module.scss';
+
+
+.hr {
+    width: 100%;
+    margin: $margin-big 0;
+    border-color: $primary-color;
+}
