@@ -13,3 +13,6 @@ delete-service:
 
 run:
 	npm start
+
+setup:
+	npm i

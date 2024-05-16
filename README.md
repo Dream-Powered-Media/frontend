@@ -48,6 +48,7 @@
 
 - react: https://react.dev/
 - redux: https://redux.js.org/
+- design: https://feature-sliced.design/
 
 
 ### Author
