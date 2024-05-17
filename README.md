@@ -5,10 +5,21 @@
 
 ### Setup
 
+
+#### Установка
+
 - install nodejs, npm, npx and docker
+- clone repo
 - after cloning change dir to app root
-- `npm i`
+
+#### Запуск
+
+- `npm i` or `make setup`
 - `npm start` or `make run`
+
+#### В случае проблем 
+
+Если приложение работает неверно или не работает, обратите внимание на версии react-scripts - возможно необходимо добиться совместимости с некоторыми другими пакетами.
 
 
 ### Структура
@@ -36,6 +47,9 @@
     │   ├── landing
     │   │   ├── api
     │   │   └── components
+    │   ├── top
+    │   │   ├── api
+    │   │   └── components
     │   └── general
     │       ├── api
     │       └── components
@@ -44,7 +58,7 @@
         └── redux
 ```
 
-### ССылки
+### Ссылки
 
 - react: https://react.dev/
 - redux: https://redux.js.org/

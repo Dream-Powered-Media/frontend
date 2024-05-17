@@ -21,16 +21,9 @@ export enum TextType {
 
 export type UUID = string;
 
-export type TestId = {
-    test_id: UUID,
+export type CommId = {
+    comm_id: UUID,
 };
-
-export type Status =
-    | 'NOT_STARTED' 
-    | 'IN_PROGRESS' 
-    | 'COMPLETED'
-    | 'ERROR'
-    | 'UNDEFINED';
 
 export type Method =
     | 'GET'

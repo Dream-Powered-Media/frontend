@@ -1,24 +1,20 @@
 import React from 'react';
 
 import {Title} from '../core/components/title/title';
-import {ButtonType, TitleType} from '../core/types/common';
+import {TitleType} from '../core/types/common';
 import { HRLine } from '../core/components/hrline/hrline';
-import { TestsListComp } from '../services/general/components/test-list/test-list';
-import { Button } from '../core/components/button/button';
+import { CommunityTopComp } from '../services/general/components/comm-top/comm-top';
 import { useNavigate } from 'react-router-dom';
 import { Bubbles } from '../core/components/bubbles/bubbles';
-import { TestComp } from '../services/general/components/test-view/test-view';
 
-export function TestView() {
-    const navigate = useNavigate();
-
+export function CommunityTop() {
     return (
         <>
             <Title ttype={TitleType.H1}>
-                Просмотр теста
+                Топ сообщества
             </Title>
             <HRLine/>
-            <TestComp />
+            <CommunityTopComp />
             <Bubbles hasBottomBubble />
         </>
     );

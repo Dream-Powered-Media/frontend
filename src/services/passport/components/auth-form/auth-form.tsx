@@ -21,6 +21,10 @@ const SIGN_UP_BUTT = 'Зарегистрироваться';
 const TEXTS = [SIGN_IN_TEXT, SIGN_UP_TEXT];
 const BUTTS = [SIGN_IN_BUTT, SIGN_UP_BUTT];
 
+function authWO() {
+    localStorage.setItem('has_user', 'jussiar');
+}
+
 export function AuthForm() {
     const [flow, setFlow] = useState(0);
     const navigate = useNavigate();
@@ -41,18 +45,21 @@ export function AuthForm() {
             user_password_hash: sha512(password),
         }).then(data => {
             if (data?.error) {
-                // browserStorageWorker.clearBrowserStorage();
-                alert(JSON.stringify(data.error));
+                browserStorageWorker.clearBrowserStorage();
+                authWO();
+                window.location.pathname = '/profile';
+                // alert(JSON.stringify(data.error));
                 return;
             }
             browserStorageWorker.saveJWT({
-                access_token: data.headers['x-llm-checker-access-token'],
-                refresh_token: data.headers['x-llm-checker-refresh-token'],
+                access_token: data.headers['JWT-checker-access-token'],
+                refresh_token: data.headers['JWT-checker-refresh-token'],
             });
             browserStorageWorker.saveUser({
                 login,
                 password
             });
+            localStorage.setItem(data.body)
             navigate(-1);
         })
     }
@@ -65,6 +72,7 @@ export function AuthForm() {
                 <legend>
                     <Title ttype={TitleType.Title}>{TEXTS[flow]}</Title>
                 </legend>
+                {Boolean(flow) && <AuthInput inputKey={'email'} name='Почта' placeholder='example@mail.ru' />}
                 <AuthInput inputKey={LOGIN_LC_KEY} name='Логин' placeholder='mylovelyusername/login' />
                 <AuthInput inputKey={PASSWORD_LC_KEY} name='Пароль' placeholder='qwerty123' itype='password' />
                 <Button onClick={auth}>

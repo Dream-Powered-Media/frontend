@@ -4,7 +4,7 @@ import {smartRequest} from '../utils/request-layer-di';
 
 class API {
     public async get(url: string, req: FullRequest) {
-        return smartRequest(`${url}${makeQueryParams(req.query)}`, 'GET');
+        return smartRequest(`${url}${makeQueryParams(req.query)}/`, 'GET');
     }
 
     public async post(url: string, req: FullRequest) {

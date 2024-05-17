@@ -1,54 +1,73 @@
 import {SERVER_DOMAIN} from '../../../core/constants/common';
 import {api} from '../../../core/models/api';
-import { FullResponse } from '../../../core/types/common';
+import { FullResponse, UUID } from '../../../core/types/common';
 import * as T from './types';
 
-const URL_ALL = `${SERVER_DOMAIN}/api/v1/tests/my`;
-const BASE_URL = `${SERVER_DOMAIN}/api/v1/test`;
+const BASE_URL_COMM = `${SERVER_DOMAIN}/api/v1/community`;
+const BASE_URL_GRADES = `${SERVER_DOMAIN}/api/v1/grade`;
+const BASE_URL_MEDIA = `${SERVER_DOMAIN}/api/v1/media`;
+const BASE_URL_DIR = `${SERVER_DOMAIN}/api/v1/directory`;
 
 
-class TestsAPI {
-    public getMyTests(req: T.GetMyTestsRequest) {
-        return api.get(URL_ALL, {query: req.query}) as (
-            Promise<FullResponse<T.GetMyTestsResponse>>
+class CommAPI {
+    public getComms() {
+        return api.get(BASE_URL_COMM, {query: undefined}) as (
+            Promise<FullResponse<T.CommResponse>>
         );
     }
 
-    public getTestById(req: T.GetTestByIdRequest) {
-        return api.get(`${BASE_URL}/${req.path.test_id}/get`, {}) as (
-            Promise<FullResponse<T.GetTestByIdResponse>>
+    public getCommFullInfo(comm_id: UUID) {
+        return api.get(`${BASE_URL_COMM}/${comm_id}/full_info`, {query: undefined}) as (
+            Promise<FullResponse<T.FullCommResponse>>
         );
     }
 
-    public createTest(req: T.CreateTestRequest) {
-        return api.put(`${BASE_URL}/create`, {body: req.body}) as (
-            Promise<FullResponse<T.CreateTestResponse>>
+    public getCommTop(comm_id: UUID) {
+        return api.get(`${BASE_URL_COMM}/${comm_id}/top`, {query: undefined}) as (
+            Promise<FullResponse<T.TopResp>>
         );
     }
 
-    public deleteTestById(req: T.DeleteTestByIdRequest) {
-        return api.delete(`${BASE_URL}/${req.path.test_id}/delete`, {}) as (
-            Promise<FullResponse<T.DeleteTestByIdResponse>>
+    public getMediaList(comm_id: UUID) {
+        return api.get(`${BASE_URL_MEDIA}/`, {query: undefined}) as (
+            Promise<FullResponse<T.MediaListResp>>
         );
     }
 
-    public llmLaunchTestById(req: T.LlmLaunchTestByIdRequest) {
-        return api.post(`${BASE_URL}/${req.path.test_id}/llm/launch`, {body: req.body}) as (
-            Promise<FullResponse<T.LlmLaunchTestByIdResponse>>
+    public addMedia(comm_id: UUID, req: any) {
+        return api.post(`${BASE_URL_MEDIA}/add`, {query: undefined}) as (
+            Promise<FullResponse<T.MediaListResp>>
         );
     }
 
-    public llmGetTestStatusById(req: T.LlmGetTestStatusByIdRequest) {
-        return api.get(`${BASE_URL}/${req.path.test_id}/llm/status`, {}) as (
-            Promise<FullResponse<T.LlmGetTestStatusByIdResponse>>
+    public commGradeMedia(media_id: UUID, grade: number, user: number) {
+        return api.post(`${BASE_URL_GRADES}/grade_media/`, {body: {
+            user: 1,
+            role: 2,
+            grade_value: grade,
+            media_link: media_id,
+        }}) as (
+            Promise<FullResponse<T.FullCommResponse>>
         );
     }
 
-    public llmGetTestResultById(req: T.LlmGetTestResultByIdRequest) {
-        return api.get(`${BASE_URL}/${req.path.test_id}/llm/result`, {}) as (
-            Promise<FullResponse<T.LlmGetTestResultByIdResponse>>
+    public follow(comm_id: UUID) {
+        return api.post(`${BASE_URL_GRADES}/grade_media`, {query: undefined}) as (
+            Promise<FullResponse<T.FullCommResponse>>
+        );
+    }
+
+    public addDir(comm_id: UUID, req: any) {
+        return api.put(`${BASE_URL_DIR}/add`, {query: undefined}) as (
+            Promise<FullResponse<any>>
+        );
+    }
+
+    public changeDir(comm_id: UUID, req: any) {
+        return api.post(`${BASE_URL_DIR}/change`, {query: undefined}) as (
+            Promise<FullResponse<any>>
         );
     }
 }
 
-export const testsApi = new TestsAPI();
+export const commApi = new CommAPI();

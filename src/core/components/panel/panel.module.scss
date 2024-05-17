@@ -6,9 +6,14 @@
     margin-top: $margin-big;
     margin-bottom: $margin-big;
     padding: $padding-large;
-    width: 100%;
+    width: calc(100% - $padding-large * 2);
 
     &[data-color=true] {
+        color: $white-color;
         background-color: $section-color;
+    }
+
+    &[data-level='2'] {
+        background-color: $helpy-color;
     }
 }

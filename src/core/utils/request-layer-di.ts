@@ -14,9 +14,9 @@ export async function smartRequest(
     return fetch(url, {
         method,
         headers: {
-            [TRACE_ID_H]: bsWorker.getTraceId(),
-            [ACCESS_TOKEN_H]: bsWorker.getAccessToken() || '',
-            [REFRESH_TOKEN_H]: bsWorker.getAccessToken() || '',
+            // [TRACE_ID_H]: bsWorker.getTraceId(),
+            // [ACCESS_TOKEN_H]: bsWorker.getAccessToken() || '',
+            // [REFRESH_TOKEN_H]: bsWorker.getAccessToken() || '',
             'Content-type': 'application/json'
         },
         ...addBody,
