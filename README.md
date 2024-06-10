@@ -80,3 +80,7 @@
 - push your branch with `git push -u {branch}`
 - create pull-request to main and wait for review
 - after accepting the review merge your PR
+
+### Поддержка
+
+https://forms.gle/jCtCTTQP4tjJcUBP8
